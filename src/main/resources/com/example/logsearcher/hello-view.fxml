@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-
-
+<?import org.fxmisc.richtext.InlineCssTextArea?>
+<?import org.fxmisc.flowless.VirtualizedScrollPane?>
 <HBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.logsearcher.HelloController"
+      fx:controller="com.example.logsearcher.FileSearcherController"
       stylesheets="@styles.css">
 
     <padding>
         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
     </padding>
 
-    <VBox spacing="5" HBox.hgrow="SOMETIMES">
+    <VBox spacing="5" maxWidth="450">
         <padding>
             <Insets left="5" right="5"/>
         </padding>
@@ -23,17 +24,34 @@
         <HBox spacing="5">
             <TextField fx:id="explorerInput" minWidth="200" HBox.hgrow="ALWAYS"/>
             <Button minWidth="70" onAction="#onExploreClick">explore</Button>
-            <ProgressIndicator fx:id="spinner" minWidth="20" maxWidth="20" maxHeight="20" visible="false"/>
         </HBox>
-        <Label>Find:</Label>
+        <Label>Text to find:</Label>
         <TextArea fx:id="textInput" prefHeight="50" wrapText="true"/>
-        <Label>Exts:</Label>
+        <Label>Allowed extensions:</Label>
         <TextField fx:id="extInput"/>
+        <HBox spacing="5">
+            <Label>File count:</Label>
+            <Text fx:id="fileCountText"/>
+            <ProgressIndicator fx:id="spinner" minWidth="20" maxWidth="20" maxHeight="20" visible="false"/>
+            <Button fx:id="cancelButton" visible="false" minWidth="70" onAction="#onCancelClick">cancel</Button>
+        </HBox>
         <TreeView fx:id="treeView" VBox.vgrow="ALWAYS"/>
     </VBox>
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" HBox.hgrow="ALWAYS">
-        <Text>File content</Text>
-        <TextArea fx:id="fileContent" VBox.vgrow="ALWAYS"/>
+        <HBox styleClass="file-controls" alignment="CENTER_LEFT">
+            <Text>File content</Text>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button onAction="#onNextOccurrenceClick" styleClass="down-arrow-button"/>
+            <Button onAction="#onPrevOccurrenceClick" styleClass="up-arrow-button"/>
+            <Region minWidth="10"/>
+            <Button onAction="#onPrevFileClick" styleClass="left-arrow-button"/>
+            <Button onAction="#onSelectAllClick" styleClass="select-all-button"/>
+            <Button onAction="#onNextFileClick" styleClass="right-arrow-button"/>
+        </HBox>
+        <VirtualizedScrollPane VBox.vgrow="ALWAYS">
+            <content>
+                <InlineCssTextArea fx:id="fileContent" editable="false" wrapText="true"/>
+            </content>
+        </VirtualizedScrollPane>
     </VBox>
 </HBox>
-

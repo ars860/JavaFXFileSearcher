@@ -3,3 +3,36 @@
 /*    -fx-border-width: 1;*/
 /*    -fx-border-style: solid;*/
 /*}*/
+
+.select-all-button, .left-arrow-button, .right-arrow-button, .down-arrow-button, .up-arrow-button {
+    -fx-background-size: 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+    -fx-min-height: 20;
+    -fx-min-width: 23;
+}
+
+.left-arrow-button, .right-arrow-button, .down-arrow-button, .up-arrow-button {
+    -fx-background-image: url('imgs/right-arrow.png');
+}
+
+.left-arrow-button {
+    -fx-scale-x: -1;
+}
+
+.down-arrow-button {
+    -fx-rotate: 90;
+}
+
+.up-arrow-button {
+    -fx-rotate: 270;
+}
+
+.select-all-button {
+    -fx-background-image: url('imgs/copy.png');
+}
+
+.file-controls {
+    -fx-padding: 2;
+    -fx-spacing: 3;
+}

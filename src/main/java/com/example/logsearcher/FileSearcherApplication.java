@@ -7,13 +7,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class FileSearcherApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 800);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(FileSearcherApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 900, 800);
+        stage.setTitle("File Searcher");
         stage.setScene(scene);
+        stage.setMinWidth(900);
+        stage.setMinHeight(400);
         stage.show();
     }
 
