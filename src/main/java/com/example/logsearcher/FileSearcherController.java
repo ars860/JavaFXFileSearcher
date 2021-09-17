@@ -276,7 +276,6 @@ public class FileSearcherController {
 
         fileContent.moveTo(occurrences.get(currentOccurrenceIndex).getStart());
         fileContent.requestFollowCaret();
-        System.out.println(occurrences.get(currentOccurrenceIndex).getStart());
     }
 
     @FXML
@@ -297,6 +296,5 @@ public class FileSearcherController {
 
         fileContent.moveTo(occurrences.get(currentOccurrenceIndex).getStart());
         fileContent.requestFollowCaret();
-        System.out.println(occurrences.get(currentOccurrenceIndex).getStart());
     }
 }
